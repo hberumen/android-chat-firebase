@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @BindView(R.id.progresBar)
     ProgressBar progressBar;
     @BindView(R.id.layoutMainContainer)
-    RelativeLayout container;
+    LinearLayout container;
 
     private LoginPresenter presenter;
 
@@ -39,6 +39,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
+        presenter = new LoginPresenterImpl(this);
+        presenter.checkForAuthenticatedUser();
     }
 
     @Override

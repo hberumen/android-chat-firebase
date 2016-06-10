@@ -5,11 +5,12 @@ package hberumen.me.androidchat.login;
  */
 public class LoginPresenterImpl implements LoginPresenter {
 
-    LoginView loginView;
-    LoginInteractor loginInteractor;
+    private LoginView loginView;
+    private LoginInteractor loginInteractor;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
+        loginInteractor = new LoginInteractorImpl();
     }
 
     @Override
